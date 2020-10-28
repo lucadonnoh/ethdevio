@@ -12,7 +12,7 @@ abstract contract Counter {
         count = startValue;
     }
 
-    function setCounter(uint value) public {
+    function setCounter(uint value) internal{
         count = value;
         emit ValueChanged(count);
     }
