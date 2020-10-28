@@ -31,7 +31,10 @@ abstract contract Counter {
     function step() public virtual;
 
 }
-//inheritance
+
+// # inheritance
+
+// increments the counter by 1
 contract IncrementCounter is Counter {
 
     constructor(uint startValue) Counter(startValue) {}
@@ -41,6 +44,7 @@ contract IncrementCounter is Counter {
     }
 }
 
+// decrements the counter by 100
 contract CountDown100 is Counter {
     
     constructor(uint startValue) Counter(startValue) {}
