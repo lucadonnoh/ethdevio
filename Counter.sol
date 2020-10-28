@@ -31,7 +31,7 @@ abstract contract Counter {
     function step() public virtual;
 
 }
-
+//inheritance
 contract IncrementCounter is Counter {
 
     constructor(uint startValue) Counter(startValue) {}
