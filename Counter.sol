@@ -7,9 +7,16 @@ abstract contract Counter {
     
     // Public variable of type unsigned int to keep the number of counts
     uint256 private count = 0;
+    address private owner;
+
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
+    }
 
     constructor(uint startValue) {
         count = startValue;
+        owner = msg.sender;
     }
 
     function setCounter(uint value) internal {
@@ -18,8 +25,13 @@ abstract contract Counter {
     }
 
     // Function that increments our counter
-    function increment() public {
+    function increment() public onlyOwner {
         count += 1;
+        emit ValueChanged(count);
+    }
+
+    function decrement() public onlyOwner {
+        count -= 1;
         emit ValueChanged(count);
     }
 
