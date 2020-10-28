@@ -12,7 +12,7 @@ abstract contract Counter {
         count = startValue;
     }
 
-    function setCounter(uint value) internal{
+    function setCounter(uint value) internal {
         count = value;
         emit ValueChanged(count);
     }
@@ -22,8 +22,30 @@ abstract contract Counter {
         count += 1;
         emit ValueChanged(count);
     }
+
+    function getCount() public view returns (uint) {
+        return count;
+    }
     
     // Not necessary getter to get the count value
     function step() public virtual;
 
+}
+
+contract IncrementCounter is Counter {
+
+    constructor(uint startValue) Counter(startValue) {}
+
+    function step() public override {
+        setCounter(getCount() + 1);
+    }
+}
+
+contract CountDown100 is Counter {
+    
+    constructor(uint startValue) Counter(startValue) {}
+
+    function step() public override {
+        setCounter(getCount() - 100);
+    }
 }
