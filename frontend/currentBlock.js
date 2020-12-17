@@ -11,7 +11,7 @@ function printTransaction(tx) {
     console.log("From            : ", tx.from);
     console.log("To              : ", tx.to);
     console.log("Value           : ", web3.utils.fromWei(tx.value, 'ether'), " Eth");
-    console.log("Transaction fee : ", web3.utils.fromWei(''+(tx.gasUsed * parseInt(tx.gasPrice)), 'ether'), " Eth");
+    console.log("Transaction fee : ", web3.utils.fromWei(''+(tx.gasUsed * parseInt(tx.gasPrice)), 'ether')+" Eth");
     console.log("Gas price       : ", web3.utils.fromWei(tx.gasPrice, 'ether'), " Eth");
     console.log("Gas limit       : ", tx.gas);
     console.log("Gas used        : ", tx.gasUsed);
